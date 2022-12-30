@@ -29,47 +29,12 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
     <title>Info-Table</title>
 
 
-    <link rel="stylesheet" href="css/formstyle.css" />
+    <link rel="stylesheet" href="css/base.css" />
     <link rel="shortcut icon" type="image/png" href="img/fav.png" />
     <style>
-        .breadcrumbs {
-            padding: 10px;
+        
 
-        }
-
-        .breadcrumbs_items {
-            display: inline-block;
-
-        }
-
-        .breadcrumbs_items:not(:last-of-type)::after {
-            content: '>';
-            margin: 0 5px;
-            color: #cccccc;
-
-        }
-
-        .breadcrumbs_link {
-            text-decoration: none;
-            color: #999999;
-            font-size: 15px;
-        }
-
-        .breadcrumbs_link-active {
-            color: #db4f0a;
-            font-weight: 500;
-        }
-
-        th[data-href] {
-            cursor: pointer;
-        }
-
-        td,
-        th {
-            width: max-content;
-        }
-
-        .table {
+        /* .table {
             width: max-content;
             height: 400px;
 
@@ -79,7 +44,7 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
             border-spacing: 0 1em;
             overflow-x: auto;
 
-        }
+        } */
     </style>
 
 </head>
@@ -113,7 +78,7 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
 
     </center>
 
-    <?php do { ?>
+    
     <div class="table_body">
         <table class="table">
             <thead>
@@ -199,11 +164,9 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
 
 
         </table>
-        <?php
-        } while ($stock_rs = mysqli_fetch_assoc($stock_query))
-            ?>
+        
 
-
+    </div>
 
 
 

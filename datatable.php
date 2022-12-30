@@ -11,7 +11,7 @@ include('rudraksha_common.html');
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>General Info</title>
 
-    <link rel="stylesheet" href="css/formstyle.css" />
+    <link rel="stylesheet" href="css/base.css" />
 
     <link rel="shortcut icon" type="image/png" href="img/fav.png" />
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
@@ -19,43 +19,22 @@ include('rudraksha_common.html');
 
     <script src="js/filter.js">   </script>
 
-    <style>
-        label{
-            margin-left: 5% ;
-        }
-        input{
-            margin-left: 10px;
-        }
-        .img-btn{
-            height: 20px;
-            width: 20px;
-        }
+    <!-- <style>
+        
+        
         .btn-success{
             border: none;
         }
         td[data-href]{
             cursor: pointer;
         }
-        .table {
-            
-
-            height: 450px;
-            width: 1450px;
-            margin: auto;
-            position: absolute;
-            /* border-collapse: collapse; */
-            overflow: scroll;
-            margin-top: 20px;
-            margin-left:5%;
-
-        }
-
+        
         .search {
             margin-bottom: 10px;
             
             position: absolute;
         }
-    </style>
+    </style> -->
 
 </head>
 
@@ -129,9 +108,9 @@ include('rudraksha_common.html');
                     <td  >" . $sl . "</td>
                     
                     <td  >" . $row["category"] . "</td>
-                    <td data-href='display_table.php' >" . $row["rudraksha"] . "</td>
+                    <td  >" . $row["rudraksha"] . "</td>
                     
-                    <td  data-href='display_table.php'>" . $row["size"] . "</td>
+                    <td  >" . $row["size"] . "</td>
                     <td  >" . $row["quantity"] . "</td>
                     <td >" . $row["quality"] . "</td>
                     <td  >" . $row["total_cost"] . "</td>
