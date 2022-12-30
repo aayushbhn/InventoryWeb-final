@@ -81,8 +81,7 @@ $sql = "SELECT unit_data_entry.ID, unit_data_entry.file,data_entry.rudraksha  FR
     } while ($cat_rs = mysqli_fetch_assoc($cat_query))
     ?>
 
-    <!-- <div class="disp">
-        <div class="reg"> -->
+   
 
 
     <?php

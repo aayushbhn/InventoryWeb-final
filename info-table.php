@@ -63,79 +63,23 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
         th[data-href] {
             cursor: pointer;
         }
-        tr:nth-of-type(odd) { 
-  background: #eee; 
-}
-th { 
-  background: #333; 
-  
-  font-weight: bold; 
-}
-td, th { 
-  padding: 6px; 
-  border: 1px solid #ccc; 
-  text-align: left; 
-}
 
-        table {
-
-
-
-            
-            width: 100%; 
-  border-collapse: collapse; 
-
+        td,
+        th {
+            width: max-content;
         }
 
-        @media 
-only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px)  {
+        .table {
+            width: max-content;
+            height: 400px;
 
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr { 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-		padding-left: 50%; 
-	}
-	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 45%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	/*
-	Label the data
-	*/
-	
-	th:nth-of-type(2):before { content: "Available"; }
-	th:nth-of-type(3):before { content: "Cost Price(NRS)"; }
-	th:nth-of-type(4):before { content: "Avg Price(NRS)"; }
-	th:nth-of-type(5):before { content: "Suggested Selling Price ($)"; }
-	th:nth-of-type(6):before { content: "Suggested Selling Price (INR)"; }
-	th:nth-of-type(7):before { content: "Website Price"; }
-	
-}
+
+
+            border-collapse: separate;
+            border-spacing: 0 1em;
+            overflow-x: auto;
+
+        }
     </style>
 
 </head>
@@ -149,62 +93,64 @@ only screen and (max-width: 760px),
 
         </li>
         <li class="breadcrumbs_items">
-            <a href="info-table.php?page=data_entry&SN=<?php echo $stock_rs['SN']; ?>" class="breadcrumbs_link breadcrumbs_link-active">Info-Table</a>
+            <a href="info-table.php?page=data_entry&SN=<?php echo $stock_rs['SN']; ?>"
+                class="breadcrumbs_link breadcrumbs_link-active">Info-Table</a>
 
         </li>
-        <?php
+    </ul>
+    <?php
         $stock_sql = "SELECT rudrakshaid.SN, data_entry.rudtype_id,data_entry.category,data_entry.rudraksha,  sum(quantity) AS quantity, sum(total_cost) as  total_cost,round(avg (price_per_unit),2) as price_per_unit,avg (website_price) as website_price,`size`,`comment`,vendor_information,round(avg (ssp),2) as ssp,round(avg (sspi),2) as sspi FROM data_entry,rudrakshaid  WHERE  data_entry.rudtype_id=" . $_GET['rudtype_id'] . " AND data_entry.rudtype_id=rudrakshaid.SN GROUP BY `size` ORDER BY `data_entry`.`size` DESC;";
         if ($stock_query = mysqli_query($mysqli, $stock_sql)) {
             $stock_rs = mysqli_fetch_assoc($stock_query);
         }
 
         ?>
-        <center>
-            <h2>
-                <?php echo $stock_rs['rudraksha']?? ""; ?>
-                
-            </h2>
+    <center>
+        <h2>
+            <?php echo $stock_rs['rudraksha'] ?? ""; ?>
 
-        </center>
+        </h2>
 
-        <?php do { ?>
-        <div class="table_body">
-            <table class="table">
-                <thead>
+    </center>
 
-                    <tr>
+    <?php do { ?>
+    <div class="table_body">
+        <table class="table">
+            <thead>
 
-                        <th>Size</th>
+                <tr>
 
-                        
-
-                        <th>Available</th>
-
-                        <th> Cost Price (NRS)</th>
-
-                        <th> Avg Price(NRS)</th>
-
-                        <th>Suggested Selling Price ($)</th>
-
-                        <th>Suggested Selling Price (INR)</th>
-
-                        <th>Website Price ($)</th>
+                    <th>Size</th>
 
 
-                    </tr>
 
-                </thead>
+                    <th>Available</th>
 
-                <tbody>
+                    <th> Cost Price (NRS)</th>
 
-                    <?php
+                    <th> Average Price Per Unit (NRS)</th>
+
+                    <th>Suggested Selling Price ($)</th>
+
+                    <th>Suggested Selling Price (INR)</th>
+
+                    <th>Website Price ($)</th>
+
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <?php
 
 
             if ($mysqli->multi_query($stock_sql)) {
                 do {
                     $result = $mysqli->store_result();
 
-                    echo ("");
+
 
                     $size = [];
                     while ($stock_rs = $result->fetch_assoc()) {
@@ -213,7 +159,7 @@ only screen and (max-width: 760px),
 
                             $size[$stock_rs["size"]] = [
 
-                              
+
                                 'quantity' => $stock_rs["quantity"],
                                 'total_cost' => $stock_rs["total_cost"],
                                 'price_per_unit' => $stock_rs["price_per_unit"],
@@ -227,7 +173,7 @@ only screen and (max-width: 760px),
 
                         echo "   <tr> <th data-href='individualImage.php?page=data_entry&rudtype_id=" . $stock_rs['rudtype_id'] . "' > " . $stock_rs["size"] . "</th>
         
-                                   
+                                    
                                     <td>" . $stock_rs["quantity"] . "</td> 
                                     <td>" . $stock_rs["total_cost"] . "</td>  
                                     <td>" . $stock_rs["price_per_unit"] . "</td>
@@ -249,20 +195,20 @@ only screen and (max-width: 760px),
 
                     ?>
 
-                </tbody>
+            </tbody>
 
 
-            </table>
-            <?php
+        </table>
+        <?php
         } while ($stock_rs = mysqli_fetch_assoc($stock_query))
             ?>
 
 
 
-    </ul>
 
 
-    <script>
+
+        <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const rows = document.querySelectorAll("th[data-href]");
                 rows.forEach(row => {
@@ -272,7 +218,7 @@ only screen and (max-width: 760px),
                 });
             });
         </script>
-    <script src="jquery/"> </script>
+        <script src="jquery/"> </script>
 
     </div>
 

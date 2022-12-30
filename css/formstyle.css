@@ -50,8 +50,8 @@ s
 
 .table {
   
-    width: 100%;
-    position: relative;
+    width: max-content;
+    
     border-collapse: collapse;
     
 }
@@ -68,7 +68,7 @@ s
     padding: 0 1.5rem;
     text-align: left;
     font-size: 15px;
-    word-break: break-all;
+    word-break: keep-all;
     transition: transform 0.2s ease;
 }
 
@@ -98,6 +98,10 @@ s
   padding: 25px 30px;
   border-radius: 5px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+.table_body{
+  width: 100vw;
+  overflow-x: auto;
 }
 
 
