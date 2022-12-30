@@ -63,22 +63,79 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
         th[data-href] {
             cursor: pointer;
         }
+        tr:nth-of-type(odd) { 
+  background: #eee; 
+}
+th { 
+  background: #333; 
+  
+  font-weight: bold; 
+}
+td, th { 
+  padding: 6px; 
+  border: 1px solid #ccc; 
+  text-align: left; 
+}
 
-        .table {
+        table {
 
 
 
             
-            width: 1450px;
-            height: 400px;
-
-
-            position: absolute;
-            border-collapse: separate;
-            border-spacing: 0 1em;
-            overflow: scroll;
+            width: 100%; 
+  border-collapse: collapse; 
 
         }
+
+        @media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+	
+	/*
+	Label the data
+	*/
+	
+	th:nth-of-type(2):before { content: "Available"; }
+	th:nth-of-type(3):before { content: "Cost Price(NRS)"; }
+	th:nth-of-type(4):before { content: "Avg Price(NRS)"; }
+	th:nth-of-type(5):before { content: "Suggested Selling Price ($)"; }
+	th:nth-of-type(6):before { content: "Suggested Selling Price (INR)"; }
+	th:nth-of-type(7):before { content: "Website Price"; }
+	
+}
     </style>
 
 </head>
@@ -119,13 +176,13 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
 
                         <th>Size</th>
 
-                        <th>Type</th>
+                        
 
                         <th>Available</th>
 
                         <th> Cost Price (NRS)</th>
 
-                        <th> Average Price Per Unit (NRS)</th>
+                        <th> Avg Price(NRS)</th>
 
                         <th>Suggested Selling Price ($)</th>
 
@@ -156,7 +213,7 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
 
                             $size[$stock_rs["size"]] = [
 
-                                'rudraksha' => $stock_rs["rudraksha"],
+                              
                                 'quantity' => $stock_rs["quantity"],
                                 'total_cost' => $stock_rs["total_cost"],
                                 'price_per_unit' => $stock_rs["price_per_unit"],
@@ -170,7 +227,7 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
 
                         echo "   <tr> <th data-href='individualImage.php?page=data_entry&rudtype_id=" . $stock_rs['rudtype_id'] . "' > " . $stock_rs["size"] . "</th>
         
-                                    <td>" . $stock_rs["rudraksha"] . "</td> 
+                                   
                                     <td>" . $stock_rs["quantity"] . "</td> 
                                     <td>" . $stock_rs["total_cost"] . "</td>  
                                     <td>" . $stock_rs["price_per_unit"] . "</td>
