@@ -1,0 +1,39 @@
+@media screen and (min-width: 800px){
+	form{
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		grid-column-gap: 50px;
+		grid-template-areas: 
+			"msg msg msg msg"
+			"image image description description"
+			"image image description description"
+			"name name price price"
+			"progress progress progress progress"
+			". submit submit ."
+		;
+	}
+	form .server-messages{
+		grid-area: msg;
+	}
+	form .product-image{
+		grid-area: image;
+	}
+	form .product-name{
+		grid-area: name;
+	}
+	form .product-price{
+		grid-area: price;
+	}
+	form .product-description{
+		grid-area: description;
+	}
+	form progress{
+		grid-area: progress;
+	}
+	form input[type=submit]{
+		grid-area: submit;
+	}
+	form textarea{
+		min-height: 100%;
+	}
+}

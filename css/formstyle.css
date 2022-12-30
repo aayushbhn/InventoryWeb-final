@@ -1,0 +1,330 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=josefin+Sans");
+html {
+  font-size: 62.5%; }
+  @media only screen and (max-width: 85.375em) {
+    html {
+      font-size: 58%; } }
+  @media only screen and (max-width: 78.12em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
+/* normalize css */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+
+}
+
+form { box-sizing: border-box; }
+
+main {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: grid;
+    grid-template-columns: minmax(max-content, 20vw) 1fr;
+    grid-template-rows: repeat(2, min-content) 1fr;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+@media only screen and (max-width: 56.25em) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
+s
+
+.table {
+  
+    width: 100%;
+    position: relative;
+    border-collapse: collapse;
+    
+}
+
+.table__head {
+    margin-top: 3rem;
+    width: 100vw;
+}
+
+.table th,
+.table td {
+
+    border: 1px solid #eee;
+    padding: 0 1.5rem;
+    text-align: left;
+    font-size: 15px;
+    word-break: break-all;
+    transition: transform 0.2s ease;
+}
+
+@media only screen and (max-width: 56.25em) {
+
+    .table th,
+    .table td {
+        padding: 0 0.5rem;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 37.5em) {
+
+    .table th,
+    .table td {
+        font-size: 15px;
+        padding: 0;
+    }
+}
+.container {
+  margin-top: 5%;
+  margin-left: 10%;
+  max-width: 80%;
+  width: 80%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+.table th {
+    font-family: 'Times New Roman', Times, serif;
+
+    position: sticky;
+    text-align: center;
+    z-index: 2;
+    top: -0.1rem;
+    background-color: #d0632d;
+}
+
+.table tr {
+    transition: all 0.3s ease;
+}
+
+.table tr .number {
+    display: block;
+    min-width: max-content;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 50px;
+    color: #aaaaaa;
+    font-weight: 200;
+    text-transform: capitalize;
+    padding: 0.2rem 2rem;
+}
+
+.table tr .number--processing {
+    background-color: #01ffff;
+}
+
+.table tr .number {
+    display: block;
+    min-width: max-content;
+    max-width: 100%;
+    text-align: center;
+    border-radius: 50px;
+    color: #aaaaaa;
+    font-weight: 200;
+    text-transform: capitalize;
+    padding: 0.2rem 2rem;
+}
+
+.table tr .number--cancel {
+    background-color: #f37d95;
+}
+
+.table tr .number {
+    display: block;
+    min-width: max-content;
+    max-width: 80%;
+    text-align: center;
+    border-radius: 50px;
+    color: #aaaaaa;
+    font-weight: 200;
+    text-transform: capitalize;
+    padding: 0.2rem 2rem;
+}
+
+.table tr .number--completed {
+    background-color: #6ace96;
+}
+
+.table tr .number {
+    display: block;
+    min-width: max-content;
+    max-width: 80%;
+    text-align: center;
+    border-radius: 50px;
+    color: #aaaaaa;
+    font-weight: 200;
+    text-transform: capitalize;
+    padding: 0.2rem 2rem;
+}
+
+.table tr .number--onhold {
+    background-color: #ffd280;
+}
+
+.table tr:nth-child(even) {
+    background-color: #eee;
+}
+
+.table tr:hover {
+    transform: translate(1rem);
+}
+
+.table tr:hover td {
+    color: coral;
+    transform: scale(1.05);
+    z-index: 1;
+    margin-top: -1rem;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+.container{
+  max-width: 700px;
+  width: 100%;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+}
+.container .title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+}
+.container .title::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+.content form .user-details{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+form .user-details .input-box{
+  margin-bottom: 15px;
+  width: calc(100% / 2 - 20px);
+}
+form .input-box span.details{
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 15px;
+  border: 1px solid #ccc;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+  border-color: #9b59b6;
+}
+ form .gender-details .gender-title{
+  font-size: 20px;
+  font-weight: 500;
+ }
+ form .category{
+   display: flex;
+   width: 80%;
+   margin: 14px 0 ;
+   justify-content: space-between;
+ }
+ form .category label{
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+ }
+ form .category label .dot{
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  margin-right: 10px;
+  background: #d9d9d9;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+ #dot-1:checked ~ .category label .one,
+ #dot-2:checked ~ .category label .two,
+ #dot-3:checked ~ .category label .three{
+   background: #9b59b6;
+   border-color: #d9d9d9;
+ }
+ form input[type="radio"]{
+   display: none;
+ }
+ form .button{
+   height: 45px;
+   margin: 35px 0
+ }
+ form .button input{
+   height: 100%;
+   width: 100%;
+   border-radius: 5px;
+   border: none;
+   color: #fff;
+   font-size: 18px;
+   font-weight: 500;
+   letter-spacing: 1px;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   background: linear-gradient(135deg, #71b7e6, #9b59b6);
+ }
+ form .button input:hover{
+   /*transform: scale(0.99); */
+  background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+  }
+ @media(max-width: 584px){
+ .container{
+  max-width: 100%;
+}
+form .user-details .input-box{
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  form .category{
+    width: 100%;
+  }
+  .content form .user-details{
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+  .user-details::-webkit-scrollbar{
+    width: 5px;
+  }
+  }
+  @media(max-width: 459px){
+  .container .content .category{
+    flex-direction: column;
+  }
+}
