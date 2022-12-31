@@ -155,7 +155,7 @@
                   element.style.justifyContent = 'center'
                 })
                 document.querySelectorAll('body').forEach((element) => {
-                    element.style.marginLeft = '11rem'
+                  element.setAttribute( "style", "margin-left: 11rem; width:calc(100vw - 11rem);")
                   })
                 } else {
                   openNav = 1;
@@ -167,7 +167,7 @@
                   })
                   
                   document.querySelectorAll('body').forEach((element) => {
-                    element.style.marginLeft = '23rem'
+                    element.setAttribute( "style", "margin-left: 23rem; width:calc(100vw - 23rem);")
                   })
                 }
               }
