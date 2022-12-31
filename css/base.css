@@ -34,6 +34,7 @@ html {
     position: absolute;
     left: 4%;
     overflow: scroll;
+    transition: all 0.5s;
   
   
   }
