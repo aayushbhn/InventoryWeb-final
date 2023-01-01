@@ -142,7 +142,7 @@ if ($stock_query2 = mysqli_query($mysqli, $sql)) {
             height: 50px;
             width: 50px;
             background-color: #d0632d;
-            color: black;
+            color: #000000ad;
             border-radius: 50%;
             padding: 1em 0.6em;
             position: absolute;
@@ -195,7 +195,7 @@ if ($stock_query2 = mysqli_query($mysqli, $sql)) {
             border-radius: 5px;
             margin-bottom: 2px;
             border: none;
-            color: black;
+            color: #000000ad;
             text-align: center;
             font-size: 12px;
             font-weight: 500;
@@ -254,7 +254,7 @@ if ($stock_query2 = mysqli_query($mysqli, $sql)) {
 
         div.container:hover .idm {
             opacity: 2;
-            color: black;
+            color: #000000ad;
             background-color: #d0632d;
 
         }

@@ -40,14 +40,7 @@ if (isset($_POST['submit'])) { // Since method=”post” in the form
 <html lang="en" dir="ltr">
 
 <head>
-    <!-- <div class=" heading">
-        <h1>
-            <center> NEPA RUDRAKSHA</center>
-        </h1>
-        <h2>
-            <center> Inventory website</center>
-        </h2>
-    </div> -->
+
 
     <meta charset="UTF-8">
 
@@ -96,7 +89,7 @@ if (isset($_POST['submit'])) { // Since method=”post” in the form
             width: 30%;
             border-radius: 5px;
             border: none;
-            color: black;
+            color: #000000ad;
             font-size: 15px;
             font-weight: 500;
             letter-spacing: 1px;
@@ -116,7 +109,7 @@ if (isset($_POST['submit'])) { // Since method=”post” in the form
             width: 20%;
             border-radius: 5px;
             border: none;
-            color: black;
+            color: #000000ad;
             font-size: 15px;
             font-weight: 500;
             letter-spacing: 1px;

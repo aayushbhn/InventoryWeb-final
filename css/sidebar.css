@@ -1,6 +1,21 @@
-body{
+html{
+    width: 100vw;
+    position: relative;
+    overflow:hidden;
+}
+html body{
     height: 100vh;
-    width:100vw;
+    width:calc(100vw - 23rem);
+    padding: 1rem;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    left: 0;
+    margin: 0;
+    top: 0;
+    color: #000000ad;
+    transition: all 0.5s;
+    margin-left: 23rem;
 }
 
 .sidebar {
@@ -15,9 +30,20 @@ body{
     border-radius: 10px;
     background: #f1f0fb;
     box-shadow: -0.2rem -0.2rem 0.5rem rgba(216, 216, 216, 0.9), 0.3rem 0.3rem 0.5rem rgba(195, 193, 198, 0.9);
-    overflow-x: hidden;
+    overflow: hidden;
     transition: all 0.5s;
     position: fixed;
+}
+.sidebar__logo--blackbox{
+    display: block;
+}
+.sidebar__logo--blackbox[hide]{
+    display: none;
+}
+.sidebar h1.logo-hide{
+    font-size: 1.1rem;
+    color: #000000ad;
+    margin-top: -1rem;
 }
 .sidebar .logo-hide, .sidebar h1.logo-hide, .sidebar .logo-hide span {
     transition: all 0.5s;
@@ -30,9 +56,9 @@ body{
 .sidebar .logo-hide[hide] {
     flex-direction: column;
 }
-.sidebar .logo-hide[hide] img {
-    width: 4.2rem;
-    height: 4.2rem;
+.sidebar .logo-hide img {
+    width: 60%;
+    height: 60%;
 }
 .sidebar__top {
     margin: 0 -0.5rem;
@@ -47,7 +73,7 @@ body{
 }
 .sidebar__logo {
     text-align: center;
-    letter-spacing: -2px;
+    /* letter-spacing: -2px; */
     transition: font-size 0.5s;
     font-size: 3rem;
     line-height: 2.5rem;
@@ -63,20 +89,19 @@ body{
     flex-wrap: nowrap;
     padding-bottom: 0.5rem;
     gap: 1rem;
-    color: #0072bc;
+    color: rgb(224, 98, 53);
     transition: all 0.5s;
     text-transform: uppercase;
 }
 .sidebar__logo--blackbox img {
     transition: all 0.5s;
-    width: 1.5rem;
-    height: 1.5rem;
+    border-radius: 8px;
 }
 .sidebar .line {
     height: 1px;
     background-color: #f1f0fb;
     margin: 1rem 0 2rem;
-    box-shadow: inset 0.2rem 0.2rem 0.5rem #fff, inset -0.2rem -0.2rem 0.5rem #000, 0.3rem 0.3rem 0.5rem #000, -0.2rem -0.2rem 0.4rem #fff;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem #fff, inset -0.2rem -0.2rem 0.5rem #000000ad, 0.3rem 0.3rem 0.5rem #000000ad, -0.2rem -0.2rem 0.4rem #fff;
 }
 .sidebar__bottom {
     display: flex;
@@ -106,8 +131,13 @@ body{
     width: 5rem;
     display: block;
 }
+.sidebar__bottom i {
+    color:#f58726;
+}
+
 .sidebar__bottom[hide] i {
     position: relative;
+    
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -130,11 +160,12 @@ body{
     flex-direction: column;
 }
 .sidebar__user--pic {
-    font-size: 2rem;
+    font-size: 2.6rem;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     display: flex;
+    color: #f58726;
     padding: 0.5rem;
     transition: font-size 0.5s;
 }
@@ -161,24 +192,24 @@ body{
     align-items: center;
     justify-content: center;
     margin: 2rem 0;
-    box-shadow: 0rem 0rem 0.4rem #fff b3, 0.4rem 0rem 0.4rem #00000078;
+    box-shadow: 0rem 0rem 0.4rem #fff, 0.4rem 0rem 0.4rem rgb(195 193 198 / 90%);
     border-radius: 50%;
     background: #f1f0fb;
     transition: all 0.5s;
 }
 .toggle:active {
-    box-shadow: inset 0.2rem 0.2rem 0.5rem #00000078, inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem #00000078, -0.2rem -0.2rem 0.4rem #fff;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem rgb(195 193 198 / 90%), inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%), -0.2rem -0.2rem 0.4rem #fff;
 }
 .toggle i {
     transform: rotate(180deg);
-    color: #0072bc;
+    color: #f58726;
     overflow: visible;
     transition: all 0.5s;
 }
 .toggle.active {
     left: 20.5rem;
     position: fixed;
-    box-shadow: inset 0.2rem 0.2rem 0.5rem #00000078, inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem #00000078, -0.2rem -0.2rem 0.4rem #fff;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem rgb(195 193 198 / 90%), inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem rgb(195 193 198 / 90%), -0.2rem -0.2rem 0.4rem #fff;
 }
 
 
@@ -232,8 +263,10 @@ body{
     font-size: 1.8rem;
 }
 .navigation__nav li i {
-    fill: #0072bc;
-    stroke-width: 1.5px;
+    color: #f58726;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1.8rem;
 }
 .navigation__nav li i.off {
     display: none;
@@ -255,16 +288,16 @@ body{
     justify-content: flex-start;
 }
 .navigation__nav--elements.active, .navigation__nav--btn.active {
-    color: #0072bc;
+    color: #f58726;
     box-shadow: inset 0.2rem 0.2rem 0.5rem rgba(195, 193, 198, 0.9), inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem rgba(195, 193, 198, 0.9), -0.2rem -0.2rem 0.4rem #fff;
 }
 .navigation__nav--elements:hover, .navigation__nav--btn:hover {
-    color: #0072bc;
+    color: #f58726;
     text-align: center;
     box-shadow: 5px 5px 10px #cdccd5, -5px -5px 10px #fff;
 }
 .navigation__nav--elements:active, .navigation__nav--btn:active {
-    box-shadow: inset 0.2rem 0.2rem 0.5rem #000, inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem #000, -0.2rem -0.2rem 0.4rem #fff;
+    box-shadow: inset 0.2rem 0.2rem 0.5rem #000000ad, inset -0.2rem -0.2rem 0.5rem #fff, 0.3rem 0.3rem 0.5rem #000000ad, -0.2rem -0.2rem 0.4rem #fff;
 }
 .navigation__nav--elements#Collapse i, .navigation__nav--btn#Collapse i {
     transition: 0.5s;

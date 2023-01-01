@@ -44,7 +44,7 @@ include('rudraksha_common.html');
     <label>Search </label>
         <input type="text" name="search" id="search" placeholder="Search By Name" class="search">
 
-       
+        <div class="table_body">
         <table class="table" id="table-data" style="overflow-x:auto;">
              <!--Create a Search bar -->
         
@@ -132,6 +132,7 @@ include('rudraksha_common.html');
             
             
         </table>
+            </div>
         
         <script>
             document.addEventListener("DOMContentLoaded",()=>{

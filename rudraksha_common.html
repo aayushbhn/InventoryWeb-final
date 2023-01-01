@@ -20,7 +20,7 @@
             .topnav a {
             float: left;
             display: block;
-            color: black;
+            color: #000000ad;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
@@ -28,10 +28,10 @@
             }
             .topnav a:hover {
             background-color: #db4f0a;
-            color: black;
+            color: #000000ad;
             }
             .topnav a.active {
-            color: black;
+            color: #000000ad;
             }
             .topnav .icon {
             display: none;
@@ -57,15 +57,7 @@
             }
             }
          </style>
-         <div class=" heading">
-            <h1 style=" color: coral; font-family: cursive;">
-               <center> NEPA RUDRAKSHA</center>
-            </h1>
-            <h2 style=" color: coral; font-family: cursive;">
-               <center> Inventory website</center>
-            </h2>
-            <br>
-         </div>
+         
 
 
       </head>
@@ -75,26 +67,31 @@
         <section id="sidebar" class="sidebar" style="width: 20rem;">
             <div class="sidebar__top">
                <div class="sidebar__logo-box" id="logolink">
-                  <div class="sidebar__logo--blackbox logo-hide" hide><img src="img/logo.png" width="28" height="28" alt="BLACKBOX"></div>
-                  </div>
+                <div class="sidebar__logo--blackbox logo-hide" ><img src="img/logo.png" alt="BLACKBOX"></div>
+                <div class="sidebar__logo--blackbox logo-hide" hide><img src="img/favicon.png" alt="BLACKBOX"></div>
+                <h1 class="sidebar__logo logo-hide" id="logo"> Inventory website</h1>
+              </div>
                <div class="sidebar__user logo-hide">
                   <div class="sidebar__user--pic">
                       <i class="fa fa-user-circle big-svg" aria-hidden="true"></i>
                   </div>
-                  <div class="sidebar__user--name "><span class="sidebar__user--user-name">Admin</span><span class="sidebar__user--user-position">Admin</span></div>
+                  <div class="sidebar__user--name ">
+                    <span class="sidebar__user--user-name"><a style="float: right;" href="unitentry.php" class="btn">Admin</a></span>
+                    <!-- <span class="sidebar__user--user-position">Admin</span> -->
+                  </div>
                </div>
             </div>
             <div class="line"></div>
             <div id="navigation" class="navigation">
                <ul class="navigation__nav">
                   <li class="heading-secondary nav-element" style="justify-content: left; width: calc(100% - 0rem);">
-                     <a class="navigation__nav--elements active" id="jobpage" nav-collapse="0" href="/">
+                     <a class="navigation__nav--elements active" id="jobpage" nav-collapse="0" href="inven_main.php">
                        <i class="fa fa-home small-svg Jobs" aria-hidden="true"></i>
                         <span>Home</span>
                      </a>
                   </li>
                   <li class="heading-secondary nav-element" style="justify-content: left; width: calc(100% - 0rem);">
-                     <a class="navigation__nav--elements" nav-collapse="0" href="/tools">
+                     <a class="navigation__nav--elements" nav-collapse="0" href="datatable.php">
                       <i class="fa fa-certificate small-svg" aria-hidden="true"></i>
 
                          
@@ -102,14 +99,14 @@
                      </a>
                   </li>
                   <li class="heading-secondary nav-element" style="justify-content: left; width: calc(100% - 0rem);">
-                     <a class="navigation__nav--elements" nav-collapse="0" href="/boards">
+                     <a class="navigation__nav--elements" nav-collapse="0" href="singlepage/index.php">
                       <i class="fa fa-picture-o small-svg" aria-hidden="true"></i>
 
                         <span>Gallery</span>
                      </a>
                   </li>
                   <li class="heading-secondary nav-element" style="justify-content: left; width: calc(100% - 0rem);">
-                     <a class="navigation__nav--elements" nav-collapse="0" href="/configure">
+                     <a class="navigation__nav--elements" nav-collapse="0" href="About.php">
                         
                           <i class="fa fa-plus-circle small-svg Configure" aria-hidden="true"></i>
 
@@ -137,6 +134,9 @@
         </div> -->
         
         <script>
+          setTimeout(
+            ()=>toggleMenu()
+, 1500);
           const toggleMenu = () => {
             document.querySelector('.toggle').classList.toggle('active')
             // document.getElementById('logo').toggleAttribute('collapse')
@@ -160,9 +160,9 @@
                 document.querySelectorAll('.nav-element').forEach((element) => {
                   element.style.justifyContent = 'center'
                 })
-                // document.querySelectorAll('.wrapper__body').forEach((element) => {
-                  //   element.style.marginLeft = '11rem'
-                  // })
+                document.querySelectorAll('body').forEach((element) => {
+                  element.setAttribute( "style", "margin-left: 11rem; width:calc(100vw - 11rem);")
+                  })
                 } else {
                   openNav = 1;
                   document.getElementById('togglemenu').style.transform = 'rotate(180deg)'
@@ -172,9 +172,9 @@
                     element.style.width = 'calc(100% - 0rem )'
                   })
                   
-                  // document.querySelectorAll('.wrapper__body').forEach((element) => {
-                  //   element.style.marginLeft = '23rem'
-                  // })
+                  document.querySelectorAll('body').forEach((element) => {
+                    element.setAttribute( "style", "margin-left: 23rem; width:calc(100vw - 23rem);")
+                  })
                 }
               }
               </script>
