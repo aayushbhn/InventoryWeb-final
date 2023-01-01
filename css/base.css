@@ -199,12 +199,8 @@ th {
   }
   
   .table tr:hover {
-    transform: translate(-0.15rem,-0.1rem);
-}
-
-.table tr:hover th{
-    transform: translate(-1rem);
-}
+      transform: translate(1rem);
+  }
   
   .table tr:hover td {
       color: coral;
