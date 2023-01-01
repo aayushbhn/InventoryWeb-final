@@ -31,22 +31,7 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
 
     <link rel="stylesheet" href="css/base.css" />
     <link rel="shortcut icon" type="image/png" href="img/fav.png" />
-    <style>
-        
-
-        /* .table {
-            width: max-content;
-            height: 400px;
-
-
-
-            border-collapse: separate;
-            border-spacing: 0 1em;
-            overflow-x: auto;
-
-        } */
-    </style>
-
+    
 </head>
 
 <body>
