@@ -10,13 +10,13 @@ html body{
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    left: 0;
+    left: 0px;
     margin: 0;
     top: 0;
     color: #000000ad;
     transition: all 0.5s;
     margin-left: 23rem;
-}
+}  
 
 .sidebar {
     left: 2rem;
