@@ -93,7 +93,7 @@ if (isset($_POST['save'])) { // Since method=”post” in the form
     .topnav a {
       float: left;
       display: block;
-      color: black;
+      color: #000000ad;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
@@ -102,12 +102,12 @@ if (isset($_POST['save'])) { // Since method=”post” in the form
 
     .topnav a:hover {
       background-color: #db4f0a;
-      color: black;
+      color: #000000ad;
     }
 
     .topnav a.active {
 
-      color: black;
+      color: #000000ad;
     }
 
     .topnav .icon {
@@ -161,7 +161,7 @@ if (isset($_POST['save'])) { // Since method=”post” in the form
       width: 15%;
       border-radius: 5px;
       border: none;
-      color: black;
+      color: #000000ad;
       font-size: 15px;
       font-weight: 500;
       letter-spacing: 1px;
@@ -178,7 +178,7 @@ if (isset($_POST['save'])) { // Since method=”post” in the form
     form .unitdata a {
       font-size: 15px;
 
-      color: black;
+      color: #000000ad;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;

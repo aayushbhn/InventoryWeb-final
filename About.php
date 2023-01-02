@@ -37,14 +37,7 @@ if (isset($_POST['submit'])) { // Since method=”post” in the form
 <html lang="en" dir="ltr">
 
 <head>
-    <div class=" heading">
-        <h1>
-            <center> NEPA RUDRAKSHA</center>
-        </h1>
-        <h2>
-            <center> Inventory website</center>
-        </h2>
-    </div>
+
 
     <meta charset="UTF-8">
     
@@ -96,7 +89,7 @@ overflow: hidden;
             width:25%;
             border-radius: 5px;
             border: none;
-            color: black;
+            color: #000000ad;
             font-size: 15px;
             font-weight: 500;
             letter-spacing: 1px;
@@ -116,7 +109,7 @@ overflow: hidden;
             width: 20%;
             border-radius: 5px;
             border: none;
-            color: black;
+            color: #000000ad;
             font-size: 15px;
             font-weight: 500;
             letter-spacing: 1px;
@@ -138,20 +131,9 @@ overflow: hidden;
 
 <body>
 
-        <div class="nav_bar">
-            <ul>
-                <div class="inl">
-                    <li><a class="active" href="inven_main.php"> Home </a> </li>
-                    <li><a href="datatable.php"> Rudraksha </a></li>
-                    <li><a href="singlepage/index.php"> Gallery </a></li>
-                    <li><a href="About.php"> Add Additional Info </a></li>
-                    <li style="float: right;"><a href="logout.php" class="btn">Logout</a></li>
-                    <li style="float: right;"><a href="unitentry.php" class="btn">Admin</a></li>
-
-                </div>
-
-            </ul>
-        </div>
+<?php
+include('rudraksha_common.html');
+?>
 
 
 

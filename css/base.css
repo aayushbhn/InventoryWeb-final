@@ -25,17 +25,16 @@ html {
   }
   
   body {
-  
     margin: auto;
-  
+    background-color: #f1f0fb;
     font-size: 1.5rem;
     line-height: 2rem;
-    width: 90%;
     border: 0px transparent;
     padding: 2rem;
     position: absolute;
     left: 4%;
     overflow: scroll;
+    transition: all 0.5s;
   
   
   }
@@ -50,21 +49,11 @@ html {
     color: coral;
   }
 
-  .table {
-    width: max-content;
-    height: 400px;
+/* breadcrumbs css style  */
 
-
-
-    border-collapse: separate;
-    border-spacing: 0 1em;
-    overflow-x: auto;
-
-}
 
 .breadcrumbs {
     padding: 10px;
-
 }
 
 .breadcrumbs_items {
@@ -90,10 +79,27 @@ html {
     font-weight: 500;
 }
 
-th[data-href] {
+/* table css styling */
+
+.table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: separate;
+    overflow-x: auto;
+}
+
+
+*[data-href] {
     cursor: pointer;
 }
 
+.table th {
+    position: sticky;
+    text-align: center;
+    z-index: 2;
+    top: -0.1rem;
+    background-color: #d0632da5;
+}
 td,
 th {
     width: max-content;
@@ -101,14 +107,12 @@ th {
 
 .table__head {
     margin-top: 3rem;
-    width: 100vw;
+    width: 100%;
 }
 
 .table th,
 .table td {
-
-    border: 1px solid #eee;
-    padding: 0 1.5rem;
+    padding: 0.5rem;
     text-align: left;
     font-size: 15px;
     word-break: keep-all;
@@ -116,20 +120,11 @@ th {
 }
 
 .table_body{
-    width: 100vw;
+    width: 100%;
     overflow-x: auto;
   }
   
   
-  .table th {
-      /* font-family: 'Times New Roman', Times, serif; */
-  
-      position: sticky;
-      text-align: center;
-      z-index: 2;
-      top: -0.1rem;
-      background-color: #d0632d;
-  }
   
   .table tr {
       transition: all 0.3s ease;

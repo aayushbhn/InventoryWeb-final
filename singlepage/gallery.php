@@ -151,7 +151,7 @@ header("location: index.php");
 
 	$color_img_box_border = "#4619ae";
 	$color_img_box_back = "#c4cfdc";
-	$color_img_box_text = "#333333";
+	$color_img_box_text = "#00000094";
 	$color_img_hover = "#ffffff";
 	$color_img_hover_text = "#000000";
 

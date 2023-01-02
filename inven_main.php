@@ -1,4 +1,8 @@
 <?php
+include('rudraksha_common.html');
+?>
+
+<?php
 @include('common_layout.html')
     ?>
 
@@ -42,7 +46,7 @@ $sql = "SELECT unit_data_entry.ID, unit_data_entry.file,data_entry.rudraksha  FR
 
         }
         div .desc{
-            color: black;
+            color: #000000ad;
         }
     </style>
 
