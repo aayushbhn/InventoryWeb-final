@@ -90,6 +90,7 @@ function make_slides($conn)
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.5.0/jszip.min.js"></script>
 
   <style>
     button {
@@ -113,7 +114,8 @@ function make_slides($conn)
 
     }
 
-    .carousel-control.left,.carousel-control.right{
+    .carousel-control.left,
+    .carousel-control.right {
       background: none;
     }
 
@@ -173,9 +175,6 @@ function make_slides($conn)
       background-color: white;
 
     }
-
-    
-    
   </style>
 
 </head>
@@ -200,7 +199,7 @@ function make_slides($conn)
     </li>
 
   </ul>
-  <div  class="container1">
+  <div class="container1">
     <center>
       <h3>Details</h3>
     </center>
@@ -288,72 +287,91 @@ function make_slides($conn)
 
     </div>
     <div class="card-footer">
-      <button id="save-all-button" style="margin-left: 40% ;">Save All Images </button>
+      <button id="download-all-as-zip-button">Download All as Zip</button>
+
+      <a href="#" class="share-button"><img height="20px" width="20px" src="Assets/img/whatsapp.png" alt=""></a>
 
     </div>
 
   </div>
+
+
   <script>
-    // Select the save all button
-const saveAllButton = document.querySelector('#save-all-button');
+    //whatsapp
+    let imageUrls = [];
+    let images = document.querySelectorAll('.carousel-image');
+    for (let i = 0; i < images.length; i++) {
+      imageUrls.push(images[i].src);
+    }
 
-// Bind a click event handler to the button
-saveAllButton.addEventListener('click', function() {
-  // Select all the images in the carousel
-  const images = document.querySelectorAll('.carousel-image');
-
-  // Iterate over the images
-  images.forEach(function(image) {
-    // Get the image URL
-    const imageUrl = image.src;
-
-    // Create a new <a> element
-    const link = document.createElement('a');
-
-    // Set the href and download attributes of the <a> element
-    link.href = imageUrl;
-    link.download = 'image.jpg';
-
-    // Append the <a> element to the DOM and trigger a click event on it
-    document.body.appendChild(link);
-    link.click();
-
-    // Remove the <a> element from the DOM
-    document.body.removeChild(link);
-  });
-});
+    document.querySelector('.share-button').href = `whatsapp://send?text=Check out these images: %0A%0A${imageUrls.join('%0A')}`;
 
   </script>
-  <!-- <script>
-    // Select the save all button
-const saveAllButton = document.querySelector('#save-all-button');
 
-// Bind a click event handler to the button
-saveAllButton.addEventListener('click', function() {
-  // Select all the images in the carousel
-  const images = document.querySelectorAll('.carousel-image');
 
-  // Iterate over the images
-  images.forEach(function(image) {
-    // Get the image URL
-    const imageUrl = image.src;
 
-    // Create a new <a> element
-    const link = document.createElement('a');
+  <script>
+    // Select the download all as zip button
+    const downloadAllAsZipButton = document.querySelector('#download-all-as-zip-button');
 
-    // Set the href and download attributes of the <a> element
-    link.href = imageUrl;
-    link.download = 'image.jpg';
+    // Bind a click event handler to the button
+    downloadAllAsZipButton.addEventListener('click', function () {
+      // Create a new JSZip object
+      const zip = new JSZip();
 
-    // Append the <a> element to the DOM and trigger a click event on it
-    document.body.appendChild(link);
-    link.click();
+      // Select all the images in the carousel
+      const images = document.querySelectorAll('.carousel-image');
 
-    // Remove the <a> element from the DOM
-    document.body.removeChild(link);
-  });
-});
-  </script> -->
+      // Array to store the Promises returned by the fetch() function
+      const fetchPromises = [];
+
+      // Iterate over the images
+      images.forEach(function (image, index) {
+        // Get the image URL
+        const imageUrl = image.src;
+
+        // Retrieve the image as a Blob and store the Promise returned by the fetch() function in the fetchPromises array
+        fetchPromises.push(fetch(imageUrl).then(function (response) {
+          return response.blob();
+        }));
+      });
+
+      // Wait for all the fetch() operations to complete
+      Promise.all(fetchPromises)
+        .then(function (blobs) {
+          // Add the Blobs to the zip file, using the file names "imageX.jpg" (where X is the index of the image)
+          blobs.forEach(function (blob, index) {
+            zip.file(`image${index}.jpg`, blob);
+          });
+
+          // Generate the zip file as a Blob
+          return zip.generateAsync({ type: 'blob' });
+        })
+        .then(function (blob) {
+          // Create a new <a> element
+          const link = document.createElement('a');
+
+          // Set the href attribute of the <a> element to the Blob URL of the zip file
+          link.href = URL.createObjectURL(blob);
+
+          // Set the download attribute of the <a> element to a
+
+          link.download = 'images.zip';
+
+          // Append the <a> element to the DOM and trigger a click event on it
+          document.body.appendChild(link);
+          link.click();
+
+          // Remove the <a> element from the DOM
+          document.body.removeChild(link);
+        });
+    });
+  </script>
+
+  <!-- whatsapp api -->
+  <script src="https://www.whatsapp.com/widget-button/whatsapp.js"></script>
+
+
 </body>
 
 </html>

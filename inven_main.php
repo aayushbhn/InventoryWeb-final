@@ -57,7 +57,7 @@ $sql = "SELECT unit_data_entry.ID, unit_data_entry.file,data_entry.rudraksha  FR
     ?>
     <?php
     do { ?>
-    <a href="info-table.php?page=data_entry&rudtype_id=<?php echo $cat_rs['rudtype_id']?? ""; ?>">
+    <a href="info-table.php?page=data_entry&rudraksha=<?php echo $cat_rs['rudraksha']?? ""; ?>">
         <?php echo " 
 
                 <div class='container' style=' display:'inline'; '>

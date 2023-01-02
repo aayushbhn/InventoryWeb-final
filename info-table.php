@@ -64,7 +64,10 @@ $query = "SELECT category,rudraksha,  sum(quantity) AS quantity, sum(total_cost)
         </li>
     </ul>
     <?php
-        $stock_sql = "SELECT rudrakshaid.SN, data_entry.rudtype_id,data_entry.category,data_entry.rudraksha,  sum(quantity) AS quantity, sum(total_cost) as  total_cost,round(avg (price_per_unit),2) as price_per_unit,avg (website_price) as website_price,`size`,`comment`,vendor_information,round(avg (ssp),2) as ssp,round(avg (sspi),2) as sspi FROM data_entry,rudrakshaid  WHERE  data_entry.rudtype_id=" . $_GET['rudtype_id'] . " AND data_entry.rudtype_id=rudrakshaid.SN GROUP BY `size` ORDER BY `data_entry`.`size` DESC;";
+        // $stock_sql = "SELECT rudrakshaid.SN, data_entry.rudtype_id,data_entry.category,data_entry.rudraksha,  sum(quantity) AS quantity, sum(total_cost) as  total_cost,round(avg (price_per_unit),2) as price_per_unit,avg (website_price) as website_price,`size`,`comment`,vendor_information,round(avg (ssp),2) as ssp,round(avg (sspi),2) as sspi FROM data_entry,rudrakshaid  WHERE  data_entry.rudraksha=" . $_GET['rudraksha'] . " AND data_entry.rudtype_id=rudrakshaid.SN GROUP BY `size` ORDER BY `data_entry`.`size` DESC;";
+    
+    $stock_sql =  "SELECT  rudtype_id,category,rudraksha,  sum(quantity) AS quantity, sum(total_cost) as  total_cost,round(avg (price_per_unit),2) as price_per_unit,avg (website_price) as website_price,`size`,`comment`,vendor_information,round(avg (ssp),2) as ssp,round(avg (sspi),2) as sspi FROM data_entry  WHERE  rudraksha='" . $_GET['rudraksha']. "' GROUP BY size ORDER BY size DESC;";
+    
         if ($stock_query = mysqli_query($mysqli, $stock_sql)) {
             $stock_rs = mysqli_fetch_assoc($stock_query);
         }
